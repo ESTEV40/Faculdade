@@ -1,5 +1,2 @@
 # Faculdade
-
-=>Atualizando semanalmente
-
-=>Códigos da faculdade
+=>Códigos de atividade em diferentes matérias da faculdade

@@ -1,0 +1,6 @@
+ana.ppm
+sanji.ppm
+saida4
+0 100
+0 100
+100 255

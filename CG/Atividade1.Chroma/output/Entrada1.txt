@@ -1,0 +1,9 @@
+fotos/PeixeAzul.ppm
+fotos/Fundo.ppm
+SaidaCachorro.ppm
+100
+0
+200
+0
+255
+100

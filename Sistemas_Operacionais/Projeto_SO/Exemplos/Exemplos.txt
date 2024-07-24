@@ -1,0 +1,23 @@
+Exemplo 2
+    Questão 2
+    A = 9
+    B = 6
+    C = 12
+    D = 4
+    Resultado = (12 * 4) / (9 + 6) = 48 / 15 = 3
+
+Exemplo 3
+    Questão 3
+    A = 13
+    B = 2
+    C = 29
+    D = 8
+    Resultado = (29 * 8) / (13 + 2) = 232 / 15 = 15
+    
+Exemplo 4
+    Questão 4
+    A = 7
+    B = 11
+    C = 19
+    D = 3
+    Resultado = (19 * 3) / (7 + 11) = 57 / 18 = 3

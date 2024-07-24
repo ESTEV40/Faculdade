@@ -1,0 +1,16 @@
+<%- include('partials/header', { title: 'Alterar Mesa - Self-Order' }) %>
+<div class="container mt-5">
+    <h2>Alterar Mesa</h2>
+    <form action="/pessoa_comanda/alterar_mesa" method="post">
+        <div class="mb-3">
+            <label for="ID" class="form-label">ID da Comanda</label>
+            <input type="number" class="form-control" id="ID" name="ID" required>
+        </div>
+        <div class="mb-3">
+            <label for="Mesa" class="form-label">Nova Mesa</label>
+            <input type="number" class="form-control" id="Mesa" name="Mesa" required>
+        </div>
+        <button type="submit" class="btn btn-info">Alterar Mesa</button>
+    </form>
+</div>
+<%- include('partials/footer') %>

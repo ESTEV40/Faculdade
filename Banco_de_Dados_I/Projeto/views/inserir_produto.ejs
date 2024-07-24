@@ -1,0 +1,30 @@
+<%- include('partials/header', { title: 'Inserir Produto - Self-Order' }) %>
+<div class="container mt-5">
+    <h2>Inserir Produto</h2>
+    <form action="/produto/inserir" method="post">
+        <div class="mb-3">
+            <label for="Nome_Produto" class="form-label">Nome do Produto</label>
+            <input type="text" class="form-control" id="Nome_Produto" name="Nome_Produto" required>
+        </div>
+        <div class="mb-3">
+            <label for="Descricao_Produto" class="form-label">Descrição</label>
+            <input type="text" class="form-control" id="Descricao_Produto" name="Descricao_Produto" required>
+        </div>
+        <div class="mb-3">
+            <label for="Valor_Produto" class="form-label">Valor</label>
+            <input type="number" class="form-control" id="Valor_Produto" name="Valor_Produto" required>
+        </div>
+        <div class="mb-3">
+            <label for="Desconto_Produto" class="form-label">Desconto</label>
+            <input type="number" class="form-control" id="Desconto_Produto" name="Desconto_Produto">
+        </div>
+        <div class="mb-3">
+            <label for="ID_Categoria" class="form-label">Categoria</label>
+            <select id="ID_Categoria" name="ID_Categoria" class="form-select" required>
+                <!-- Adicione as opções de categorias dinamicamente -->
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Inserir</button>
+    </form>
+</div>
+<%- include('partials/footer') %>

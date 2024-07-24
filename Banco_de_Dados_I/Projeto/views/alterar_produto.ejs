@@ -1,0 +1,35 @@
+<%- include('partials/header', { title: 'Alterar Produto - Self-Order' }) %>
+<div class="container mt-5">
+    <h2>Alterar Produto</h2>
+    <form action="/produto/alterar" method="post">
+        <div class="mb-3">
+            <label for="ID_Produto" class="form-label">ID do Produto</label>
+            <input type="number" class="form-control" id="ID_Produto" name="ID_Produto" required>
+        </div>
+        <div class="mb-3">
+            <label for="Nome_Produto" class="form-label">Nome do Produto</label>
+            <input type="text" class="form-control" id="Nome_Produto" name="Nome_Produto" required>
+        </div>
+        <div class="mb-3">
+            <label for="Descricao_Produto" class="form-label">Descrição</label>
+            <input type="text" class="form-control" id="Descricao_Produto" name="Descricao_Produto" required>
+        </div>
+        <div class="mb-3">
+            <label for="Valor_Produto" class="form-label">Valor</label>
+            <input type="number" class="form-control" id="Valor_Produto" name="Valor_Produto" required>
+        </div>
+        <div class="mb-3">
+            <label for="Desconto_Produto" class="form-label">Desconto</label>
+            <input type="number" class="form-control" id="Desconto_Produto" name="Desconto_Produto">
+        </div>
+        <div class="mb-3">
+            <label for="Disponivel" class="form-label">Disponível</label>
+            <select id="Disponivel" name="Disponivel" class="form-select" required>
+                <option value="1">Sim</option>
+                <option value="0">Não</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Alterar</button>
+    </form>
+</div>
+<%- include('partials/footer') %>

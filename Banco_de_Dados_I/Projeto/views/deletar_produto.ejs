@@ -1,0 +1,12 @@
+<%- include('partials/header', { title: 'Deletar Produto - Self-Order' }) %>
+<div class="container mt-5">
+    <h2>Deletar Produto</h2>
+    <form action="/produto/deletar" method="post">
+        <div class="mb-3">
+            <label for="ID_Produto" class="form-label">ID do Produto</label>
+            <input type="number" class="form-control" id="ID_Produto" name="ID_Produto" required>
+        </div>
+        <button type="submit" class="btn btn-danger">Deletar</button>
+    </form>
+</div>
+<%- include('partials/footer') %>

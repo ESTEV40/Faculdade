@@ -1,0 +1,55 @@
+<%- include('partials/header', { title: 'Fazer Pedido - Self-Order' }) %>
+<div class="container mt-5">
+    <h2>Fazer Pedido</h2>
+    <form id="filter-form" class="mt-4">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="categoria" class="form-label">Categoria</label>
+                <select id="categoria" name="categoria" class="form-select">
+                    <option value="">Todas</option>
+                    <!-- Adicione as opções de categorias dinamicamente -->
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="preco" class="form-label">Preço Máximo</label>
+                <input type="number" id="preco" name="preco" class="form-control">
+            </div>
+        </div>
+        <button type="button" onclick="filterProducts()" class="btn btn-primary mt-3">Filtrar</button>
+    </form>
+
+    <form id="order-form" action="/pedido/fazer" method="post" class="mt-4">
+        <div id="product-list">
+            <!-- Listagem de produtos dinamicamente -->
+        </div>
+        <button type="submit" class="btn btn-success mt-3">Concluir Pedido</button>
+    </form>
+</div>
+
+<script>
+    // Função para filtrar produtos
+    function filterProducts() {
+        const categoria = document.getElementById('categoria').value;
+        const preco = document.getElementById('preco').value;
+
+        fetch(`/produto?categoria=${categoria}&preco=${preco}`)
+            .then(response => response.json())
+            .then(products => {
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                products.forEach(product => {
+                    const productItem = document.createElement('div');
+                    productItem.className = 'form-check';
+                    productItem.innerHTML = `
+                        <input class="form-check-input" type="checkbox" value="${product.ID_Produto}" name="produtos">
+                        <label class="form-check-label">
+                            ${product.Produto} - R$ ${product.Subtotal.toFixed(2)}
+                        </label>
+                    `;
+                    productList.appendChild(productItem);
+                });
+            });
+    }
+</script>
+<%- include('partials/footer') %>

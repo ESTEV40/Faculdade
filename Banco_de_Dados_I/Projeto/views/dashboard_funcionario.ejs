@@ -1,0 +1,60 @@
+<%- include('partials/header', { title: 'Dashboard Funcionário - Self-Order' }) %>
+<div class="container mt-5">
+    <h2>Dashboard do Funcionário</h2>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <form id="filter-form" class="mb-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="categoria" class="form-label">Categoria</label>
+                        <select id="categoria" name="categoria" class="form-select">
+                            <option value="">Todas</option>
+                            <!-- Adicione as opções de categorias dinamicamente -->
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="preco" class="form-label">Preço Máximo</label>
+                        <input type="number" id="preco" name="preco" class="form-control">
+                    </div>
+                </div>
+                <button type="button" onclick="filterProducts()" class="btn btn-primary mt-3">Filtrar</button>
+            </form>
+            <div id="product-list">
+                <!-- Listagem de produtos dinamicamente -->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-success mb-2" onclick="location.href='/inserir_produto'">Inserir Produto</button>
+            <button class="btn btn-warning mb-2" onclick="location.href='/alterar_produto'">Alterar Produto</button>
+            <button class="btn btn-danger mb-2" onclick="location.href='/deletar_produto'">Deletar Produto</button>
+            <button class="btn btn-success mb-2" onclick="location.href='/inserir_categoria'">Inserir Categoria</button>
+            <button class="btn btn-danger mb-2" onclick="location.href='/deletar_categoria'">Deletar Categoria</button>
+            <button class="btn btn-info mb-2" onclick="location.href='/alterar_mesa'">Alterar Mesa</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Função para filtrar produtos
+    function filterProducts() {
+        const categoria = document.getElementById('categoria').value;
+        const preco = document.getElementById('preco').value;
+
+        fetch(`/produto?categoria=${categoria}&preco=${preco}`)
+            .then(response => response.json())
+            .then(products => {
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = '';
+
+                products.forEach(product => {
+                    const productItem = document.createElement('div');
+                    productItem.className = 'product-item';
+                    productItem.innerHTML = `
+                        <p>${product.Produto} - ${product.Descricao} - R$ ${product.Subtotal.toFixed(2)}</p>
+                    `;
+                    productList.appendChild(productItem);
+                });
+            });
+    }
+</script>
+<%- include('partials/footer') %>

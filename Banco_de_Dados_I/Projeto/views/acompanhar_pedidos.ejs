@@ -1,0 +1,43 @@
+<%- include('partials/header', { title: 'Acompanhar Pedidos - Self-Order' }) %>
+<div class="container mt-5">
+    <h2>Acompanhar Pedidos</h2>
+    <div id="order-list" class="mt-4">
+            
+    </div>
+</div>
+
+<script>
+    // Função para carregar pedidos
+    function loadOrders() {
+        fetch('/pedido/acompanhar')
+            .then(response => response.json())
+            .then(orders => {
+                const orderList = document.getElementById('order-list');
+                orderList.innerHTML = '';
+
+                orders.forEach(order => {
+                    const orderItem = document.createElement('div');
+                    orderItem.className = 'order-item';
+                    orderItem.innerHTML = `
+                        <p>${order.Produto} - ${order.Descricao} - R$ ${order.Subtotal.toFixed(2)}</p>
+                        <button class="btn btn-danger" onclick="cancelOrder(${order.ID_Pedido})">Cancelar</button>
+                    `;
+                    orderList.appendChild(orderItem);
+                });
+            });
+    }
+
+    // Função para cancelar pedido
+    function cancelOrder(orderId) {
+        fetch(`/pedido/cancelar/${orderId}`, { method: 'DELETE' })
+            .then(response => {
+                if (response.ok) {
+                    loadOrders();
+                }
+            });
+    }
+
+    // Carregar pedidos ao carregar a página
+    window.onload = loadOrders;
+</script>
+<%- include('partials/footer') %>

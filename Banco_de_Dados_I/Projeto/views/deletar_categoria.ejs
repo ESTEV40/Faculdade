@@ -1,0 +1,12 @@
+<%- include('partials/header', { title: 'Deletar Categoria - Self-Order' }) %>
+<div class="container mt-5">
+    <h2>Deletar Categoria</h2>
+    <form action="/categoria/deletar" method="post">
+        <div class="mb-3">
+            <label for="ID_Categoria" class="form-label">ID da Categoria</label>
+            <input type="number" class="form-control" id="ID_Categoria" name="ID_Categoria" required>
+        </div>
+        <button type="submit" class="btn btn-danger">Deletar</button>
+    </form>
+</div>
+<%- include('partials/footer') %>

@@ -1,0 +1,22 @@
+<%- include('partials/header', { title: 'Cadastro Cliente - Self-Order' }) %>
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h2>Cadastro de Cliente</h2>
+        <form action="/pessoa_comanda/cadastrar" method="post">
+            <div class="mb-3">
+                <label for="Nome_PessoaComanda" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="Nome_PessoaComanda" name="Nome_PessoaComanda" required>
+            </div>
+            <div class="mb-3">
+                <label for="CPF" class="form-label">CPF</label>
+                <input type="text" class="form-control" id="CPF" name="CPF" required>
+            </div>
+            <div class="mb-3">
+                <label for="Mesa" class="form-label">Mesa</label>
+                <input type="number" class="form-control" id="Mesa" name="Mesa" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+    </div>
+</div>
+<%- include('partials/footer') %>
